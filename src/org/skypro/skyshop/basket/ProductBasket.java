@@ -22,17 +22,18 @@ public class ProductBasket {
         }
     }
 
-    public int getTotalPrice() {
-        int total = 0;
+    public double getTotalPrice() {
+        double total = 0;
         for (Product product : products) {
             if (product != null) {
-                total += product.price();
+                total += product.getPrice();
             }
         }
         return total;
     }
 
     public void printProductBasket() {
+        int specialProducts = 0;
         for (Product product : products) {
             if (product != null) {
                 System.out.println(product);
@@ -41,12 +42,18 @@ public class ProductBasket {
                 return;
             }
         }
+        for (Product product : products) {
+            if (product.isSpecial()) {
+                specialProducts++;
+            }
+        }
         System.out.println("Итого: " + getTotalPrice());
+        System.out.println("Специальных товаров: "+specialProducts);
     }
 
     public boolean hasProduct(String name) {
         for (Product product : products) {
-            if (product.name().equalsIgnoreCase(name)) {
+            if (product.getName().equalsIgnoreCase(name)) {
                 return true;
             }
         }
