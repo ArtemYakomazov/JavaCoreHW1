@@ -26,6 +26,7 @@ public class App {
 
         System.out.println(("Есть ли хлеб в корзине? " + productBasket.hasProduct("хлеб")));
 
+
     }
 
 }
